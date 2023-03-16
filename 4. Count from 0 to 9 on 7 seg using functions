@@ -1,4 +1,8 @@
-int A = 8;
+/* This program is designed to Count from 0 to 9 on 7 segments using functions */
+
+
+// Define variables for each pin corresponding to segments on the seven-segment display
+ int A = 8;
  int B = 7;
  int C = 6;
  int D = 5;
@@ -32,7 +36,7 @@ void setup()
 }
 
 
-//these are the functions for each digits to be displayed
+// functions for each digits to be displayed
 void One() { 
 for( int j = 0; j<7 ; j++) {
   digitalWrite(pins[j], one[j]);//ONE
