@@ -1,9 +1,10 @@
+/* This program uses an Arduino board to display digits 0 to 9 on a 7-segment display using switch case and functions.*/
 int time=1000;  //define variable to easily control time delay
 
 //Array for pins corresponding to the pins a-g on the 7segments
 int pins[]={4,5,6,7,8,9,10};
 
-//Arrays of 7 that contaning  the LEDs
+//Arrays of 7 that contain the LEDs for each digit
 int zero[]={1,1,1,1,1,1,0};
 int one[]={0,1,1,0,0,0,0};
 int two[]={1,1,0,1,1,0,1};
