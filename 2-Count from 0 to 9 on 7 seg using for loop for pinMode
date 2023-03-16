@@ -1,18 +1,25 @@
- int A = 8;
- int B = 7;
- int C = 6;
- int D = 5;
- int E = 4;
- int F = 3;
- int G = 2;
- int H = 1;
+ /*
+This program controls a 7-segment display to display numbers from 0 to 9.
+The pins A to G are connected to the corresponding pins on the display, and pin H is not used.
+The main theme is digital output control to display numbers on a 7-segment display by using 
+for loop for pinMode.
+*/
+
+int A = 8; //assign pin number to variable A
+int B = 7; //assign pin number to variable B
+int C = 6; //assign pin number to variable C
+int D = 5; //assign pin number to variable D
+int E = 4; //assign pin number to variable E
+int F = 3; //assign pin number to variable F
+int G = 2; //assign pin number to variable G
+int H = 1; //assign pin number to variable H
 
 
 void setup()
 {
 //using for loop to define pins as outputs
   for( int i=2; i<9; i++){
-    pinMode(i, OUTPUT);
+    pinMode(i, OUTPUT); //set pin i as an output
   }
 }
 
