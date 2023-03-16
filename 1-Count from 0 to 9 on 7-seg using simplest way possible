@@ -1,15 +1,20 @@
- int A = 8;
- int B = 7;
- int C = 6;
- int D = 5;
- int E = 4;
- int F = 3;
- int G = 2;
- int H = 1;
+/*
+The goal of this program is to display numbers on a 7-segment display using Arduino.
+The main theme is digital output control based on the binary representation of each number by using simplest way possible.
+*/
 
+int A = 8; // defining pin number for segment A
+int B = 7; // defining pin number for segment B
+int C = 6; // defining pin number for segment C
+int D = 5; // defining pin number for segment D
+int E = 4; // defining pin number for segment E
+int F = 3; // defining pin number for segment F
+int G = 2; // defining pin number for segment G
+int H = 1; // defining pin number for segment H
 
 void setup()
-{// setting pins as output
+{
+// setting pins as output
   pinMode(A, OUTPUT);
   pinMode(B, OUTPUT);
   pinMode(C, OUTPUT);
@@ -23,7 +28,7 @@ void setup()
 
 
 void loop() { //display numbers on 7 segment
-//zero
+//displaying 0
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -33,7 +38,7 @@ void loop() { //display numbers on 7 segment
   digitalWrite(G, LOW);
   digitalWrite(H, LOW);
   delay(1000);
- //one
+ //displaying one
   digitalWrite(A, LOW);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -43,7 +48,7 @@ void loop() { //display numbers on 7 segment
   digitalWrite(G, LOW);
   digitalWrite(H, LOW);
 delay(1000);
-//two
+//displaying two
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, LOW);
@@ -53,7 +58,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//three
+//displaying three
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -63,7 +68,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//four
+//displaying four
   digitalWrite(A, LOW);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -73,7 +78,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//five
+//displaying five
   digitalWrite(A, HIGH);
   digitalWrite(B, LOW);
   digitalWrite(C, HIGH);
@@ -83,7 +88,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//six
+//displaying six
   digitalWrite(A, HIGH);
   digitalWrite(B, LOW);
   digitalWrite(C, HIGH);
@@ -93,7 +98,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//seven
+//displaying seven
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -103,7 +108,7 @@ delay(1000);
   digitalWrite(G, LOW);
   digitalWrite(H, LOW);
 delay(1000);
-//eight
+//displaying eight
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
@@ -113,7 +118,7 @@ delay(1000);
   digitalWrite(G, HIGH);
   digitalWrite(H, LOW);
 delay(1000);
-//nine
+//displaying nine
   digitalWrite(A, HIGH);
   digitalWrite(B, HIGH);
   digitalWrite(C, HIGH);
