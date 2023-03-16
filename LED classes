@@ -19,17 +19,16 @@ pinMode(_pin, OUTPUT); //pinmode to output
  digitalWrite(_pin,0); //turn off
  }
 };
-////////////////////************************class finished************************//////////////
 
-Led Red (13);
+Led Red (12);
 
 
 void setup() {
-Red.init();// put your setup code here, to run once:
+Red.init();
 
 }
 
 void loop() {
- Red.on(); // put your main code here, to run repeatedly:
+ Red.on(); 
 delay(1000);
 }
