@@ -1,15 +1,21 @@
-int B = 7;
- int C = 6;
- int D = 5;
- int E = 4;
- int F = 3;
- int G = 2;
- int H = 1;
+/*
+This Arduino program displays numbers 0 to 9 on a 7-segment display using an array of pins and arrays for each number's corresponding LEDs. The program loops through each number and displays it for one second before moving on to the next number.
+Main theme: Displaying digital numbers on a 7-segment display using an array.
+*/
 
-int time = 1000;// define a variable to easily control delays
+int B = 7; //Declaring integer variable B and assigning it the value 7
+int C = 6; //Declaring integer variable C and assigning it the value 6
+int D = 5; //Declaring integer variable D and assigning it the value 5
+int E = 4; //Declaring integer variable E and assigning it the value 4
+int F = 3; //Declaring integer variable F and assigning it the value 3
+int G = 2; //Declaring integer variable G and assigning it the value 2
+int H = 1; //Declaring integer variable H and assigning it the value 1
 
-int pins[] ={8,7,6,5,4,3,2};//Array for the pins corresponding to the pins a-g on the 7 segment
-//Arrays of 7 that enabling the led's to tur on and off 
+int time = 1000; //Declaring integer variable time and assigning it the value 1000, used to control delays.
+
+int pins[] ={8,7,6,5,4,3,2}; //Declaring an array of integers named pins, which holds the values of the pins for the a-g LEDs on the 7-segment display.
+
+//Arrays of 7 that enabling the LED's to turn on and off for each digit from 0 to 9.
 int one[] = {0,1,1,0,0,0,0};
 int two[] = {1,1,0,1,1,0,1};
 int three[] = {1,1,1,1,0,0,1};
