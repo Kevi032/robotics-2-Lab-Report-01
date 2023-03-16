@@ -1,146 +1,148 @@
-/*
-the goal of this program is to move the robot car by using the IR remote.
-*/
+int time=1000;  //define variable to easily control time delay
 
-// Include IR Remote Library by Ken Shirriff
-#include <IRremote.h>
-#define F 16736925 // FORWARD
-#define B 16754775 // BACKWARD
-#define L 16720605 // LEFT
-#define R 16761405 // RIGHT
-#define S 16712445 // STOP
-// Define sensor pin
-const int RECV_PIN = 9;
+//Array for pins corresponding to the pins a-g on the 7segments
+int pins[]={4,5,6,7,8,9,10};
 
-//[movement]define motor pins
-#define motor1 8
-#define motor2 7
-#define speed1 5
-#define speed2 6
+//Arrays of 7 that contaning  the LEDs
+int zero[]={1,1,1,1,1,1,0};
+int one[]={0,1,1,0,0,0,0};
+int two[]={1,1,0,1,1,0,1};
+int three[]={1,1,1,1,0,0,1};
+int four[]={0,1,1,0,0,1,1};
+int five[]={1,0,1,1,0,1,1};
+int six[]={1,0,1,1,1,1,1};
+int seven[]={1,1,1,0,0,0,0};
+int eight[]={1,1,1,1,1,1,1};
+int nine[]={1,1,1,0,0,1,1};
 
 
-// Define integer to remember toggle state
-int togglestate = 0;
 
-// Define IR Receiver and Results Objects
-IRrecv irrecv(RECV_PIN);
-decode_results results;
- 
+//Variable used to change the case through a for loop
+int var;
 
-void setup(){
-  Serial.begin(9600);//initialize serial comunication at 9600 bits per second:
-  // Enable the IR Receiver
-  irrecv.enableIRIn();
-  // set pins as outputs
-    for (int i=5 ;i<9 ;i++){
-pinMode(i, OUTPUT);}
- digitalWrite(3, HIGH);//initialize standby pin:
+void setup() {
+   // using for loop to define pins as outputs
+  for(int i=4;i<11;i++){
+  pinMode(i,OUTPUT);
+  }
 
-}
-
-
-void loop(){
-  //if buttons on the IR remote are pressed ,the robot will perform a certain function: 
-    if (irrecv.decode(&results)){
- Serial.println(results.value, HEX);
-        irrecv.resume(); 
- 
-        switch(results.value){
-         
-          case 0xFF629D: 
-         forward();
-          
-        break;
-   
-          case 0xFFA857: 
-       backward();
-         break;
-        
-        case 0xFF02FD:
-        stop();
-         break;
-
-        case 0xFF22DD:
-        left();
-        break;
-          
-        case 0xFFC23D:
-        right();
-        break;        
-        
-       case 0xFF6897:
-      
-       stop();
-       
-       break;
-      
-      case 0xFF9867:
-    
-       stop();
-       break;
-      
-      case 0xFFB04F:
   
-       stop();
-       break;      
-        }
-    }
-        
-    }
+}
+
+//Function for each digit
+void Zero(){
+for (int a=0;a<8;a++){ 
+  digitalWrite(pins[a],zero[a]); //zero
+}
+}  
+
+void One(){
+for (int a=0;a<8;a++){ 
+  digitalWrite(pins[a],one[a]); //ONE
+}
+}
+
+void Two(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],two[a]); //TWO
+}
+}
+
+void Three(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],three[a]); //THREE
+}
+}
+
+void Four(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],four[a]); //FOUR
+}
+}
+
+void Five(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],five[a]); //FIVE
+}
+}
+
+void Six(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],six[a]); //SIX
+}
+}
+
+void Seven(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],seven[a]); //SEVEN
+}
+}
+
+void Eight(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],eight[a]); //EIGHT
+}
+}
+
+void Nine(){
+for (int a=0;a<8;a++){
+  digitalWrite(pins[a],nine[a]); //NINE
+}
+}
+
+
+void loop() {
+
+//For loop that allows to change the case after the previous one has been completed
+for(var=0;var<10;var++){ //since it is for each digit it starts at 0 and continuos to 9 
+  
+switch(var){
+  case 0: //for each case it calls its respective function that will display the number
+    Zero(); //For example, case 0 will use function Zero to display 0 on the 7-segment
+    
+    break; //break the case and continue 
+    
+    //the same thing hapopens with the case of each digit
+    case 1:
+      One();
+      
+      break;
+    case 2:
+      Two();
+     
+      break;  
+    case 3:
+      Three();
+     
+      break;
+    case 4:
+      Four();
+     
+      break;   
+    case 5:
+      Five();
+      
+      break; 
+    case 6:
+      Six();
+      
+      break; 
+    case 7:
+      Seven();
    
-/* funtions that make the robot move forward,backward,left,right,
-forward left,forward right,backward left,backward right,  and stop respectively.*/
-void forward(){
- digitalWrite(8, 1);
- digitalWrite(7, 1);
- analogWrite(5, 126);
- analogWrite(6, 126);
+      break; 
+    case 8:
+      Eight();
+      
+      break; 
+    case 9:
+      Nine();
+      
+      break; 
+    default: //default case
+      break;          
 }
-void backward(){
- digitalWrite(8, 0);
- digitalWrite(7, 0);
- analogWrite(5, 126);
- analogWrite(6, 126);
+delay(time); //after each case there's a delay of 1 second 
+// the loop starts again at the end
 }
-void left(){
- digitalWrite(8, 0);
- digitalWrite(7, 1);
- analogWrite(5, 126);
- analogWrite(6, 126);
-}
- void right(){
- digitalWrite(8, 1);
- digitalWrite(7, 0);
- analogWrite(5, 126);
- analogWrite(6, 126);
-}
- void forwardleft(){
- digitalWrite(8, 1);
- digitalWrite(7, 1);
- analogWrite(5, 126);
- analogWrite(6, 63);
-}
- void forwardright(){
- digitalWrite(8, 1);
- digitalWrite(7, 1);
- analogWrite(5, 63);
- analogWrite(6, 126);
-}
- void backwardleft(){
- digitalWrite(8, 0);
- digitalWrite(7, 0);
- analogWrite(5, 126);
- analogWrite(6, 63);
-}
-void backwardright(){
- digitalWrite(8, 0);
- digitalWrite(7, 0);
- analogWrite(5, 63);
- analogWrite(6, 126);
-}
-void stop(){
- digitalWrite(8, 1);
- digitalWrite(7, 1);
- analogWrite(5, 0);
- analogWrite(6, 0);
-}
+ }
